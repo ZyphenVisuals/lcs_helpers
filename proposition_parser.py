@@ -1,6 +1,7 @@
 vocab = "ABCDEFGHIJKLMNOPQRSTUVWXYZnaoie()"
 operations = "naoie"
 
+import os
 import csv
 
 class Node:
@@ -212,6 +213,8 @@ def computeAll(root: Node):
         value_row = [x[1] for x in row]
         rows.append(value_row)
         #print("Value under interpretation", interpretation, "is", truth)
+    if not os.path.exists("res"):
+        os.makedirs("res")
     with open('res/truth_table.csv', 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerows(rows)
