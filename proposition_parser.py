@@ -53,6 +53,7 @@ What do you want to do?
 1 : Display tree
 2 : Compute value for an interpretation
 3 : Generate truth table
+4 : Exit
 >""", end="")
 
 def validateVocabulary(text): 
@@ -244,8 +245,12 @@ def main():
             computeUnderInterpretation(root)
         elif choice == "3":
             computeAll(root)
+        elif choice == "4":
+            break;
         else:
             print("Invalid choice.")
+
+    print("Goodbye!")
 
 
 if __name__ == "__main__":
