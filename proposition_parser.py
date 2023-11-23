@@ -1,6 +1,7 @@
 vocab = "ABCDEFGHIJKLMNOPQRSTUVWXYZnaoie()"
 operations = "naoie"
 
+import os
 import csv
 
 class Node:
@@ -52,6 +53,7 @@ What do you want to do?
 1 : Display tree
 2 : Compute value for an interpretation
 3 : Generate truth table
+4 : Exit
 >""", end="")
 
 def validateVocabulary(text): 
@@ -212,6 +214,8 @@ def computeAll(root: Node):
         value_row = [x[1] for x in row]
         rows.append(value_row)
         #print("Value under interpretation", interpretation, "is", truth)
+    if not os.path.exists("res"):
+        os.makedirs("res")
     with open('res/truth_table.csv', 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerows(rows)
@@ -241,8 +245,12 @@ def main():
             computeUnderInterpretation(root)
         elif choice == "3":
             computeAll(root)
+        elif choice == "4":
+            break;
         else:
             print("Invalid choice.")
+
+    print("Goodbye!")
 
 
 if __name__ == "__main__":
