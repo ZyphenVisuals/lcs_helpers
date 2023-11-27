@@ -1,5 +1,5 @@
 """
-Parses a relaxed syntax logical expression using the Shunting Yard Algorithm by Dijkstra
+Parses a relaxed syntax logical expression using the Shunting Yard Algorithm by Dijkstra.
 
 The rules of the algorithm are the following:
 
@@ -20,6 +20,9 @@ The rules of the algorithm are the following:
     - Push onto stack
 
 After going over all of the symbols of the expression, consume the stack, printing everything to the output.
+
+These steps leave you with the representation of the original expression in Reverse Polish Notation.
+This can then easily be parsed into an actual AST.
 """
 
 stack = []
@@ -102,4 +105,5 @@ def main():
         consume_stack()
         print("The final output is:", output)
 
-main()
+if __name__ == "__main__":
+    main()
