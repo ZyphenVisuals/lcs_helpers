@@ -1,3 +1,27 @@
+"""
+Parses a relaxed syntax logical expression using the Shunting Yard Algorithm by Dijkstra
+
+The rules of the algorithm are the following:
+
+1. A variable: 
+    - Print it to output
+2. A open paranthesis: 
+    - Push onto stack
+3. A closed paranthesis:
+    - Discard the symbol
+    - Print and discard everything from the stack until meeting an open paranthesis
+    - That open paranthesis also gets discarded
+4. A connective, when the stack is empty or the last element is an open paranthesis
+    - Push onto stack
+5. A connective, when the last element of the stack is a connective with LOWER priority
+    - Push onto stack
+6. A connective, when the last element of the stack is a connective with HIGHER priority
+    - Print and discard every element from the stack until that condition is no longer met
+    - Push onto stack
+
+After going over all of the symbols of the expression, consume the stack, printing everything to the output.
+"""
+
 stack = []
 output = ""
 
@@ -18,6 +42,7 @@ def getPriority(symbol: str):
 def interpret_symbol(symbol: str):
     global output
     global stack
+    
     # if symbol is a variable
     if symbol in vocabulary_variables:
         output += symbol
@@ -40,7 +65,7 @@ def interpret_symbol(symbol: str):
                   and getPriority(symbol) <= getPriority(stack[-1])):
                 output += stack.pop()
             stack.append(symbol)
-    # invalid
+    # invalid symbol
     else:
         raise Exception("Invalid symbol")
 
