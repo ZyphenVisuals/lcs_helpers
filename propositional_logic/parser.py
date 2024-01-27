@@ -208,4 +208,16 @@ if __name__ == "__main__":
         print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Data folder not initialized or already in use. Please run {Fore.YELLOW}initialize.py{Style.RESET_ALL} first.")
         sys.exit(1)
 
+    # check that input is present
+    input_ok = True
+    try:
+        with open("input.txt") as l:
+            if l.read() == "":
+                input_ok = False
+    except Exception:
+        input_ok = False
+    if not input_ok:
+        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Input file is empty or doesn't exist. Please create {Fore.YELLOW}input.txt{Style.RESET_ALL} first.")
+        sys.exit(1)
+
     main()
