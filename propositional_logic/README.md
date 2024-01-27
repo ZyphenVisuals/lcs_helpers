@@ -30,5 +30,3 @@ In addition to everything mentioned under `User input`, the programs may also us
 - `⊥` (contradiction)
 - `ℐ` (interpretation)
 - `𝒱ℐ` (value under interpretation)
-
-## Input / Output

@@ -1,7 +1,0 @@
-[HUMAN] Parsing expression: (¬Pos⇒Qra)∧S⇒¬Pos∨Qra
-[DEBUG] Input symbols: ['(', '¬', 'Pos', '⇒', 'Qra', ')', '∧', 'S', '⇒', '¬', 'Pos', '∨', 'Qra']
-[DEBUG] Identified variable: 'Pos'
-[DEBUG] Identified variable: 'Qra'
-[DEBUG] Identified variable: 'S'
-[DEBUG] Reverse Polish Notation: ['Pos', '¬', 'Qra', '⇒', 'S', '∧', 'Pos', '¬', 'Qra', '∨', '⇒']
-[DEBUG] The identified variables are ['Pos', 'Qra', 'S']

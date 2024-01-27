@@ -1,1 +1,0 @@
-(¬Pos⇒Qra)∧S⇒¬Pos∨Qra

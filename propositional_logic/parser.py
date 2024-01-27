@@ -196,8 +196,16 @@ if __name__ == "__main__":
     if "debug" in sys.argv:
         debug = True
 
-    # clear previous log
-    f = open("logs/relaxed_parser.log", "w", encoding="utf-8")
-    f.close()
-    
+    # check that initialize was run
+    initialized = True
+    try:
+        with open("logs/parser.log") as l:
+            if l.read() != "":
+                initialized = False
+    except Exception:
+        initialized = False
+    if not initialized:
+        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Data folder not initialized or already in use. Please run {Fore.YELLOW}initialize.py{Style.RESET_ALL} first.")
+        sys.exit(1)
+
     main()
